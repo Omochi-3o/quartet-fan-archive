@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>QUARTET FAN ARCHIVE</title>
+<style>
+:root{
+  --ink:#252234; --muted:#777185; --line:#ddd8e5; --lav:#8e78b7;
+  --lav2:#efe9f7; --bg:#fbfafc; --card:#fff; --accent:#6e5a9d;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,"Noto Sans JP","Yu Gothic",sans-serif;line-height:1.8}
+a{color:inherit;text-decoration:none}
+header{position:sticky;top:0;z-index:10;background:rgba(251,250,252,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{max-width:1180px;margin:auto;height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 22px}
+.logo{letter-spacing:.18em;font-family:Georgia,serif;font-size:18px}
+nav{display:flex;gap:22px;font-size:13px;color:var(--muted)}
+nav a:hover{color:var(--accent)}
+.hero{max-width:1180px;margin:30px auto 0;padding:0 22px}
+.hero-card{position:relative;min-height:530px;border-radius:28px;overflow:hidden;background:#201b2b;display:flex;align-items:flex-end}
+.hero-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.78}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,23,39,.05),rgba(28,23,39,.85))}
+.hero-copy{
+  position:relative;
+  z-index:1;
+  color:#fff;
+  padding:55px;
+  max-width:760px;
+
+  /* 文字全体を下へ */
+  transform:translateY(45px);
+}
+.kicker{font-size:12px;letter-spacing:.25em;text-transform:uppercase;opacity:.75}
+h1{font-family:Georgia,"Yu Mincho",serif;font-size:clamp(44px,7vw,82px);line-height:1.05;margin:12px 0 18px;font-weight:500}
+.hero-copy p{margin:0;color:#eee8f4;font-size:16px}
+.badge{display:inline-block;margin-top:25px;padding:6px 14px;border:1px solid rgba(255,255,255,.45);border-radius:999px;font-size:11px;letter-spacing:.12em}
+section{max-width:1180px;margin:90px auto;padding:0 22px}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:30px}
+.section-head h2{font-family:Georgia,"Yu Mincho",serif;font-size:38px;margin:0;font-weight:500}
+.section-head p{margin:0;color:var(--muted);font-size:13px}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 8px 25px rgba(54,42,76,.05)}
+.card img{width:100%;height:270px;object-fit:cover;display:block}
+.card-body{padding:20px}
+.card h3{margin:0 0 5px;font-family:Georgia,"Yu Mincho",serif;font-size:22px}
+.card p{margin:0;color:var(--muted);font-size:13px}
+.profile-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:22px}
+.profile-card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:26px}
+.profile-card img{width:100%;height:420px;object-fit:cover;border-radius:18px}
+.profile-card h3{font-family:Georgia,"Yu Mincho",serif;font-size:30px;margin:18px 0 4px}
+.meta{color:var(--muted);font-size:13px}
+.quote{background:var(--lav2);border-radius:18px;padding:22px;margin-top:16px;color:#514665}
+.timeline{position:relative;margin-left:10px;border-left:1px solid #cfc6dd}
+.event{position:relative;padding:0 0 34px 34px}
+.event:before{content:"";position:absolute;left:-6px;top:8px;width:11px;height:11px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px var(--lav2)}
+.year{font-size:12px;letter-spacing:.15em;color:var(--accent)}
+.event h3{margin:5px 0;font-family:Georgia,"Yu Mincho",serif;font-size:22px}
+.event p{margin:0;color:var(--muted);font-size:14px}
+.clips {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.clip {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    overflow: hidden;
+    display: block;
+}
+
+.clip img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.clip-body {
+    padding: 25px;
+}
+.clip-body{padding:25px}
+.clip-tag{font-size:11px;color:var(--accent);letter-spacing:.12em}
+.clip h3{font-family:Georgia,"Yu Mincho",serif;font-size:24px;line-height:1.4;margin:10px 0}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gallery img{width:100%;height:250px;object-fit:cover;border-radius:18px;border:1px solid var(--line);background:#eee}
+.notice{margin-top:55px;padding:25px;border:1px solid var(--line);border-radius:18px;background:#fff;color:var(--muted);font-size:13px}
+footer{margin-top:100px;padding:50px 22px;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:12px}
+footer strong{color:var(--ink)}
+@media(max-width:850px){
+  nav{gap:10px;font-size:11px}.cards{grid-template-columns:repeat(2,1fr)}
+  .profile-grid,.clips{grid-template-columns:1fr}.gallery{grid-template-columns:1fr 1fr}
+  .hero-card{min-height:470px}.hero-copy{padding:32px}
+}
+@media(max-width:560px){
+  nav{display:none}.cards{grid-template-columns:1fr}.gallery{grid-template-columns:1fr}
+  .clip{grid-template-columns:1fr}.clip img{height:210px}.hero-card{min-height:520px}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a class="logo" href="#home">QUARTET FAN ARCHIVE</a>
+    <nav>
+      <a href="#profile">PROFILE</a>
+      <a href="#history">HISTORY</a>
+      <a href="#clips">CLIPS</a>
+      <a href="#gallery">GALLERY</a>
+    </nav>
+  </div>
+</header>
+
+<main id="home">
+  <div class="hero">
+    <div class="hero-card">
+      <img src="quartet-main.png" alt="4人のカルテット集合イラスト">
+      <div class="hero-overlay"></div>
+      <div class="hero-copy">
+        <div class="kicker"></div>
+
+
+        <h1>QUARTET</h1>
+        <p>Ria・Ren・Shin・Yunaによる4人組。
+長年一緒にゲームをしてきた仲であり、「QUARTET」の名で親しまれている。
+        </p>
+        <p style="margin-top:8px;font-family:Georgia,serif;font-size:20px;">この4人なら、最強。</p>
+        <span class="badge">FAN-MADE · NOT OFFICIAL</span>
+      </div>
+    </div>
+  </div>
+
+  <section id="profile">
+    <div class="section-head">
+      <div><h2>Profile</h2><p>4人について、ファン目線でざっくり。</p></div>
+    </div>
+    <div class="cards">
+      <article class="card"><a href="ria.html"><img src="Ria_normal.jpeg" alt="Ria"><div class="card-body"><h3>Ria</h3><p>年齢：17歳</p><p>イメージカラー：紫・白</p><p>ひとこと：帰宅部のうるさい部長
+      </p></div></a></article>
+      <article class="card"><a href="ren.html"><img src="Ren_normal.jpeg" alt="Ren"><div class="card-body"><h3>Ren</h3><p>年齢：19歳</p><p>イメージカラー：青・黒</p><p>ひとこと：Riaの永遠の喧嘩相手</p></div></a></article>
+      <article class="card">
+    <a href="yuna.html">
+        <img src="Yuna_normal.jpeg" alt="Yuna">
+        <div class="card-body">
+            <h3>Yuna</h3>
+            <p>年齢：27歳</p>
+            <p>イメージカラー：スモーキーピンク</p>
+            <p>ひとこと：カルテットのお姉さん</p>
+        </div>
+    </a>
+</article>
+  <article class="card">
+    <a href="shin.html">
+        <img src="Shin_normal.jpeg" alt="Shin">
+        <div class="card-body">
+            <h3>Shin</h3>
+            <p>年齢：28歳</p>
+            <p>イメージカラー：グレー</p>
+            <p>ひとこと：「まぁ、そういう日もある」の人</p>
+        </div>
+    </a>
+</article>
+    </div>
+  </section>
+
+  <section id="history">
+    <div class="section-head">
+      <div><h2>History</h2><p>カルテットの「なんとなく分かる」年表。</p></div>
+    </div>
+    <div class="timeline">
+     
+      <div class="event"><div class="year">EARLY DAYS</div><h3>4人でゲームを始める</h3><p>もともとはRenとRia、YunaとShinのペアで活動。APEXをきっかけに仲良くなる。</p></div>
+       <div class="event"><div class="year">2023</div><h3>4人の絆</h3><p>Riaが配信を開始。Apexで仲良くなった2人がその配信を訪れたともいわれている
+      </p></div>
+      <div class="event"><div class="year">2024</div><h3>カルテット誕生</h3><p>Riaが海外への留学を発表。大人組も繁栄期に入り一時的疎遠に。この頃にリスナーが「カルテット」を命名</p></div>
+      <div class="event"><div class="year">2025</div><h3>カルテット復活</h3><p>社会人になりしばらく離れていた2人が復活。「久々に4人揃います！！」という投稿だけでファンがざわつく。</p></div>
+      <div class="event"><div class="year">2025</div><h3>伝説の迷場面集</h3><p>喧嘩する2人、夕飯を決める2人、そして誰も話を聞いていない4人。</p></div>
+      <div class="event"><div class="year">2026</div><h3>GTAにて再集合</h3><p>「うるさくなる予定です」の宣言どおり、本当にうるさくなる。</p></div>
+    </div>
+  </section>
+
+ <section id="clips">
+
+  <div class="section-head">
+    <div>
+      <h2>CLIPS</h2>
+      <p>配信の名場面・迷場面。</p>
+    </div>
+  </div>
+
+  <div class="clips">
+
+    <article class="clip">
+      <img src="varolant_clops.png" alt="VALORANTのクリップ">
+
+      <div class="clip-body">
+        <p class="clip-meta">QUARTET · VALORANT</p>
+
+        <h3>4人揃った瞬間うるさくなるの何？？？</h3>
+
+        <p>
+          「うるせぇ！！」
+          「お前が言うな！！」
+          「ちょっと待ってｗｗ」
+        </p>
+      </div>
+    </article>
+
+
+    <article class="clip">
+      <img src="gta_clip.png" alt="GTAのクリップ">
+
+      <div class="clip-body">
+        <p class="clip-meta">QUARTET · GTA</p>
+
+        <h3>誰も話を聞いていないQUARTET</h3>
+
+        <p>
+          それぞれ好き勝手に行動した結果、
+          会話も状況も全部めちゃくちゃになる4人。
+          Riaが死にまくりYunaが救助に走り,Renが怒鳴りに行きShinが鎮めるいつもの4人
+        </p>
+      </div>
+    </article>
+
+  </div>
+
+  <p class="notice">
+    ※ ご本人様の映像ではございません。あくまでファンメイドです。
+  </p>
+
+</section>
+
+
+<footer>
+  <p>QUARTET FAN ARCHIVE</p>
+  <p>FAN-MADE · NOT OFFICIAL</p>
+</footer>
+
+</main>
+
+</body>
+</html>

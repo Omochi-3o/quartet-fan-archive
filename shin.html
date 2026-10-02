@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shin | QUARTET FAN ARCHIVE</title>
+
+    <style>
+
+        /* =========================
+           BASIC
+        ========================== */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: #f4f5f6;
+            color: #292c31;
+            font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", sans-serif;
+            line-height: 1.8;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        body > h2,
+        section > h2 {
+            color: #66727d;
+
+            font-family: Georgia, "Yu Mincho", serif;
+            font-size: 30px;
+            font-weight: 500;
+
+            letter-spacing: 3px;
+        }
+
+        body > h2,
+        .profile,
+        section {
+            width: min(900px, calc(100% - 40px));
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        body > h2 {
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        section {
+            margin-top: 90px;
+            margin-bottom: 90px;
+        }
+
+
+        /* =========================
+           NAVIGATION
+        ========================== */
+
+        .top-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 55px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 35px;
+
+            background: rgba(244, 245, 246, 0.94);
+            backdrop-filter: blur(12px);
+
+            border-bottom: 1px solid rgba(102, 114, 125, 0.14);
+
+            z-index: 1000;
+        }
+
+        .top-nav a {
+            color: #66727d;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 2px;
+
+            transition: opacity 0.2s ease;
+        }
+
+        .top-nav a:hover {
+            opacity: 0.5;
+        }
+
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            min-height: 760px;
+            padding: 105px 8% 45px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 70px;
+
+            background:
+                radial-gradient(
+                    circle at 75% 45%,
+                    rgba(115, 126, 137, 0.13),
+                    transparent 35%
+                );
+        }
+
+        .hero-text {
+            width: 420px;
+            flex-shrink: 0;
+        }
+
+        .hero-group {
+            margin: 0 0 10px;
+
+            color: #8b949c;
+
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 6px;
+        }
+
+        .hero h1 {
+            margin: 0;
+
+            color: #58636d;
+
+            font-family: Georgia, "Yu Mincho", serif;
+            font-size: 100px;
+            font-weight: 500;
+            line-height: 1;
+
+            letter-spacing: 5px;
+        }
+
+        .hero-quote {
+            margin-top: 35px;
+
+            color: #50565c;
+
+            font-family: Georgia, "Yu Mincho", serif;
+            font-size: 19px;
+        }
+
+        .hero-sub {
+            margin-top: 12px;
+
+            color: #9099a1;
+
+            font-size: 12px;
+            letter-spacing: 2px;
+        }
+
+        .hero-image {
+            width: 460px;
+            height: 600px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            flex-shrink: 0;
+        }
+
+        .hero-image img {
+            display: block;
+
+            width: auto;
+            height: 100%;
+            max-width: 100%;
+
+            object-fit: contain;
+        }
+
+
+        /* =========================
+           PROFILE
+        ========================== */
+
+        .profile {
+            padding: 30px 40px;
+
+            background: #ffffff;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 10px 35px rgba(55, 64, 73, 0.08);
+        }
+
+        .profile p {
+            margin: 10px 0;
+            padding-bottom: 10px;
+
+            border-bottom: 1px solid #e6e8ea;
+        }
+
+        .profile p:last-child {
+            border-bottom: none;
+        }
+
+        .profile strong {
+            display: inline-block;
+            width: 150px;
+
+            color: #66727d;
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================== */
+
+        .about {
+            position: relative;
+            overflow: hidden;
+
+            padding: 45px 50px;
+
+            background: #ffffff;
+
+            border-radius: 24px;
+
+            box-shadow:
+                0 10px 35px rgba(55, 64, 73, 0.08);
+        }
+
+        .about::before {
+            content: "";
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            width: 7px;
+            height: 100%;
+
+            background: #66727d;
+        }
+
+        .about h2 {
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+
+        .about h3 {
+            margin: 0 0 20px;
+
+            color: #66727d;
+
+            font-size: 25px;
+        }
+
+        .about p {
+            margin: 10px 0;
+
+            color: #50565c;
+        }
+
+
+        /* =========================
+           STREAM / GAME
+        ========================== */
+
+        .stream-grid {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 20px;
+        }
+
+        .stream-card {
+            padding: 30px;
+
+            background: #ffffff;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 10px 30px rgba(55, 64, 73, 0.07);
+        }
+
+        .stream-card h3 {
+            margin-top: 0;
+
+            color: #66727d;
+
+            font-size: 20px;
+        }
+
+        .stream-card p {
+            color: #50565c;
+        }
+
+
+        /* =========================
+           BUDDY
+        ========================== */
+
+        .relationship-box {
+            position: relative;
+
+            padding: 45px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #343a40,
+                    #59636c
+                );
+
+            color: #ffffff;
+
+            border-radius: 26px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 16px 40px rgba(48, 56, 63, 0.15);
+        }
+
+        .relationship-box::after {
+            content: "Y × S";
+
+            position: absolute;
+            right: 25px;
+            bottom: -25px;
+
+            color: rgba(255, 255, 255, 0.05);
+
+            font-family: Georgia, serif;
+            font-size: 110px;
+            font-weight: bold;
+        }
+
+        .relationship-label {
+            margin: 0;
+
+            color: #c2cbd2;
+
+            font-size: 11px;
+            font-weight: bold;
+
+            letter-spacing: 3px;
+        }
+
+        .relationship-box h3 {
+            margin: 5px 0 25px;
+
+            color: #ffffff;
+
+            font-family: Georgia, "Yu Mincho", serif;
+            font-size: 32px;
+        }
+
+        .relationship-box p {
+            position: relative;
+            z-index: 1;
+
+            color: #e7eaed;
+        }
+
+        .relationship-note {
+            margin-top: 25px;
+            padding: 18px 20px;
+
+            background: rgba(255, 255, 255, 0.08);
+
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 14px;
+        }
+
+
+        /* =========================
+           QUARTET
+        ========================== */
+
+        .quartet-box {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+        .quartet-card {
+            padding: 27px;
+
+            background: #ffffff;
+
+            border-top: 4px solid #89949d;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 10px 30px rgba(55, 64, 73, 0.07);
+        }
+
+        .quartet-card h3 {
+            margin: 0 0 12px;
+
+            color: #66727d;
+
+            font-family: Georgia, "Yu Mincho", serif;
+            font-size: 22px;
+        }
+
+        .quartet-card p {
+            margin: 0;
+
+            color: #5b6268;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           TRIVIA
+        ========================== */
+
+        .episode {
+            position: relative;
+
+            margin-bottom: 15px;
+            padding: 25px 30px 25px 35px;
+
+            overflow: hidden;
+
+            background: #ffffff;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 8px 25px rgba(55, 64, 73, 0.06);
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .episode::before {
+            content: "";
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            width: 5px;
+            height: 100%;
+
+            background: #89949d;
+        }
+
+        .episode:hover {
+            transform: translateX(6px);
+
+            box-shadow:
+                0 12px 30px rgba(55, 64, 73, 0.11);
+        }
+
+        .episode h3 {
+            margin: 0 0 8px;
+
+            color: #66727d;
+
+            font-size: 18px;
+        }
+
+        .episode p {
+            margin: 0;
+
+            color: #5b6268;
+        }
+
+
+        /* =========================
+           BACK BUTTON
+        ========================== */
+
+        .back-area {
+            width: min(900px, calc(100% - 40px));
+
+            margin: 90px auto;
+
+            text-align: center;
+        }
+
+        .back-button {
+            display: inline-block;
+
+            padding: 12px 28px;
+
+            color: #66727d;
+
+            border: 1px solid #bdc4ca;
+            border-radius: 999px;
+
+            font-size: 12px;
+            font-weight: bold;
+
+            letter-spacing: 2px;
+
+            transition: 0.2s ease;
+        }
+
+        .back-button:hover {
+            color: #ffffff;
+
+            background: #66727d;
+
+            border-color: #66727d;
+        }
+
+
+        /* =========================
+           SCROLL POSITION
+        ========================== */
+
+        #profile,
+        #about,
+        #stream,
+        #relationship,
+        #quartet,
+        #trivia {
+            scroll-margin-top: 85px;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 950px) {
+
+            .hero {
+                min-height: auto;
+
+                padding-top: 105px;
+
+                flex-direction: column;
+
+                gap: 30px;
+            }
+
+            .hero-text {
+                width: 100%;
+
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 80px;
+            }
+
+            .hero-image {
+                width: 100%;
+                height: 550px;
+            }
+
+            .quartet-box {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+        @media (max-width: 700px) {
+
+            .top-nav {
+                justify-content: flex-start;
+
+                gap: 20px;
+
+                padding: 0 20px;
+
+                overflow-x: auto;
+            }
+
+            .top-nav a {
+                flex-shrink: 0;
+
+                font-size: 10px;
+            }
+
+            .hero {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .hero h1 {
+                font-size: 65px;
+            }
+
+            .hero-image {
+                height: 480px;
+            }
+
+            .stream-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile,
+            .about,
+            .stream-card,
+            .relationship-box {
+                padding-left: 25px;
+                padding-right: 25px;
+            }
+
+            .profile strong {
+                display: block;
+                width: auto;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <nav class="top-nav">
+
+        <a href="#profile">PROFILE</a>
+
+        <a href="#about">ABOUT</a>
+
+        <a href="#stream">GAME</a>
+
+        <a href="#relationship">BUDDY</a>
+
+        <a href="#quartet">QUARTET</a>
+
+        <a href="#trivia">TRIVIA</a>
+
+    </nav>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <header class="hero">
+
+        <div class="hero-text">
+
+            <p class="hero-group">
+                QUARTET
+            </p>
+
+            <h1>
+                Shin
+            </h1>
+
+            <p class="hero-quote">
+                「まぁ、そういう日もある。」
+            </p>
+
+            <p class="hero-sub">
+                GRAY / QUIET SUPPORT
+            </p>
+
+        </div>
+
+
+        <div class="hero-image">
+
+            <img
+                src="shin_normal_stand.png"
+                alt="Shinの立ち絵"
+            >
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         PROFILE
+    ========================== -->
+
+    <h2 id="profile">
+        PROFILE
+    </h2>
+
+
+    <div class="profile">
+
+        <p>
+            <strong>名前：</strong>
+            Shin / シン
+        </p>
+
+        <p>
+            <strong>年齢：</strong>
+            28歳
+        </p>
+
+        <p>
+            <strong>職業：</strong>
+            IT・エンジニア系
+        </p>
+
+        <p>
+            <strong>活動：</strong>
+            ゲーム配信・コラボ中心
+        </p>
+
+        <p>
+            <strong>メインゲーム：</strong>
+            VALORANT / APEX / GTA / Minecraft
+        </p>
+
+        <p>
+            <strong>イメージカラー：</strong>
+            グレー
+        </p>
+
+        <p>
+            <strong>得意：</strong>
+            索敵 / 情報共有 / 状況判断
+        </p>
+
+        <p>
+            <strong>性格：</strong>
+            温厚 / マイペース / 面倒見がいい
+        </p>
+
+        <p>
+            <strong>所属：</strong>
+            QUARTET
+        </p>
+
+    </div>
+
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
+    <section class="about" id="about">
+
+        <h2>
+            Shinについて
+        </h2>
+
+        <h3>
+            静かに見守る、QUARTETの兄。
+        </h3>
+
+        <p>
+            落ち着いていて穏やかな性格。
+            QUARTETの中では比較的マイペースで、
+            周りが騒いでいてもあまり動じない。
+        </p>
+
+        <p>
+            Riaの自由な行動にも付き合いながら、
+            必要なときには自然にフォローを入れる。
+            Riaから見ると、
+            お兄ちゃんのような存在。
+        </p>
+
+        <p>
+            普段はかなり温厚だが、
+            ホラーゲームなどで突然大声を出すことがあり、
+            そのギャップがたびたび話題になる。
+        </p>
+
+    </section>
+
+
+    <!-- =========================
+         STREAM / GAME
+    ========================== -->
+
+    <section class="stream" id="stream">
+
+        <h2>
+            配信・ゲーム
+        </h2>
+
+        <div class="stream-grid">
+
+            <div class="stream-card">
+
+                <h3>
+                    主な配信内容
+                </h3>
+
+                <p>
+                    VALORANT / APEX / GTA /
+                    Minecraft / ホラー / 雑談 / コラボ
+                </p>
+
+            </div>
+
+
+            <div class="stream-card">
+
+                <h3>
+                    VALORANT
+                </h3>
+
+                <p>
+                    <strong>現在ランク：</strong>
+                    Platinum 3
+                </p>
+
+                <p>
+                    <strong>最高ランク：</strong>
+                    Diamond 1
+                </p>
+
+            </div>
+
+
+            <div class="stream-card">
+
+                <h3>
+                    APEX LEGENDS
+                </h3>
+
+                <p>
+                    <strong>現在ランク：</strong>
+                    Platinum 2
+                </p>
+
+                <p>
+                    <strong>最高ランク：</strong>
+                    Diamond 4
+                </p>
+
+            </div>
+
+
+            <div class="stream-card">
+
+                <h3>
+                    配信スタイル
+                </h3>
+
+                <p>
+                    落ち着いた話し方で、
+                    周囲の状況を見ながらプレイするタイプ。
+                    FPSでは味方への情報共有を大切にし、
+                    自分が目立つよりもチーム全体を動かすことを好む。
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         BUDDY
+    ========================== -->
+
+    <section id="relationship">
+
+        <h2>
+            BUDDY
+        </h2>
+
+
+        <div class="relationship-box">
+
+            <p class="relationship-label">
+                CALM PARTNERS / THE ADULTS
+            </p>
+
+            <h3>
+                Yuna × Shin
+            </h3>
+
+            <p>
+                QUARTETの中でも特に落ち着いた二人。
+                RiaとRenが騒いでいる横で、
+                なんとなく状況を把握していることが多い。
+            </p>
+
+            <p>
+                YunaはShinに遠慮なく話しかけることができ、
+                ShinもYunaには比較的素直。
+                長く一緒にゲームをしていることもあり、
+                会話に無理がない。
+            </p>
+
+            <p>
+                Yunaが「ちょっとシン！！」と
+                ツッコミを入れることも多いが、
+                Shinはあまり気にせず
+                「まぁ、そういう日もある」と返すことが多い。
+            </p>
+
+            <p>
+                RiaとRenが何かを始めても、
+                二人で顔を見合わせて
+                「また始まったね」
+                で済ませていることが多い。
+            </p>
+
+            <div class="relationship-note">
+
+                「QUARTETの保護者組。」
+
+                <br>
+
+                ――ファンからそう呼ばれることもある。
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         QUARTET
+    ========================== -->
+
+    <section id="quartet">
+
+        <h2>
+            QUARTET
+        </h2>
+
+
+        <div class="quartet-box">
+
+
+            <div class="quartet-card">
+
+                <h3>
+                    Ria
+                </h3>
+
+                <p>
+                    妹のような存在。
+                    Riaが自由に動いているのを
+                    少し離れたところから見守っていることが多い。
+                </p>
+
+            </div>
+
+
+            <div class="quartet-card">
+
+                <h3>
+                    Ren
+                </h3>
+
+                <p>
+                    熱くなりやすいRenを
+                    比較的冷静に見ている。
+                    二人でいると落ち着いた会話になる。
+                </p>
+
+            </div>
+
+
+            <div class="quartet-card">
+
+                <h3>
+                    Yuna
+                </h3>
+
+                <p>
+                    気を遣わずに話せる相手。
+                    Yunaからのツッコミにも
+                    いつもの調子で返す。
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         TRIVIA
+    ========================== -->
+
+    <section id="trivia">
+
+        <h2>
+            小ネタ・エピソード
+        </h2>
+
+
+        <div class="episode">
+
+            <h3>
+                #001　「まぁ、そういう日もある」
+            </h3>
+
+            <p>
+                Shinを象徴するような一言。
+                大抵のことはこの言葉で受け流す。
+            </p>
+
+        </div>
+
+
+        <div class="episode">
+
+            <h3>
+                #002　ちょっとシン！！
+            </h3>
+
+            <p>
+                Yunaからの定番ツッコミ。
+                Shinが何かやらかしたときによく飛んでくる。
+            </p>
+
+        </div>
+
+
+        <div class="episode">
+
+            <h3>
+                #003　Sovaメイン
+            </h3>
+
+            <p>
+                VALORANTではSovaをよく使用。
+                索敵や情報共有を活かして、
+                味方が動きやすい状況を作るのが得意。
+            </p>
+
+        </div>
+
+
+        <div class="episode">
+
+            <h3>
+                #004　突然の絶叫
+            </h3>
+
+            <p>
+                普段は落ち着いているShinだが、
+                ホラーゲームでは突然大声を出すことがある。
+            </p>
+
+        </div>
+
+
+        <div class="episode">
+
+            <h3>
+                #005　面倒見がいい
+            </h3>
+
+            <p>
+                本人は特別世話を焼いているつもりはないが、
+                RiaやRenが困っていると自然にフォローに入る。
+            </p>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- =========================
+         BACK
+    ========================== -->
+
+    <div class="back-area">
+
+        <a href="index.html" class="back-button">
+            ← QUARTET FAN ARCHIVE
+        </a>
+
+    </div>
+
+
+</body>
+
+</html>
